@@ -1,0 +1,179 @@
+
+/* Main dashboard */
+.student-home {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 28px 20px 50px;
+  color: #1e293b;
+}
+
+/* Welcome banner */
+.welcome-section {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(120deg, #123b70, #2478bd);
+  padding: 42px 45px;
+  border-radius: 18px;
+  margin-bottom: 38px;
+  box-shadow: 0 10px 28px rgba(27, 78, 130, 0.15);
+}
+
+.welcome-section::after {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  right: -65px;
+  top: -105px;
+}
+
+.welcome-section h1 {
+  color: #ffffff;
+  font-size: 34px;
+  font-weight: 750;
+  margin: 0 0 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.welcome-section p {
+  color: #e2edff;
+  font-size: 16px;
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 0 25px;
+  position: relative;
+  z-index: 1;
+}
+
+.welcome-section button {
+  position: relative;
+  z-index: 1;
+  background: #ffffff;
+  color: #175b9b;
+  border: none;
+  border-radius: 9px;
+  padding: 13px 23px;
+  font-size: 15px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.welcome-section button:hover {
+  background: #eaf3ff;
+  transform: translateY(-2px);
+}
+
+/* Quick access section */
+.home-summary h2 {
+  font-size: 25px;
+  font-weight: 700;
+  color: #172f50;
+  margin-bottom: 8px;
+}
+
+.home-quick-links {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 22px;
+}
+
+/* Cards */
+.home-card {
+  background: #ffffff;
+  border: 1px solid #e5eaf1;
+  border-radius: 15px;
+  padding: 26px 24px;
+  min-height: 225px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-shadow: 0 5px 18px rgba(15, 35, 65, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.home-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(15, 35, 65, 0.10);
+}
+
+.home-card h3 {
+  color: #1b3c63;
+  font-size: 19px;
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+
+.home-card p {
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0 0 22px;
+  flex-grow: 1;
+}
+
+.home-card button {
+  background: #edf5ff;
+  color: #1769aa;
+  border: 1px solid #d5e8fc;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.home-card button:hover {
+  background: #1769aa;
+  color: #ffffff;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .home-quick-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .welcome-section {
+    padding: 35px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .student-home {
+    padding: 18px 12px 35px;
+  }
+
+  .welcome-section {
+    padding: 28px 22px;
+    border-radius: 13px;
+  }
+
+  .welcome-section h1 {
+    font-size: 25px;
+  }
+
+  .welcome-section p {
+    font-size: 14px;
+  }
+
+  .home-summary h2 {
+    font-size: 22px;
+  }
+
+  .home-quick-links {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .home-card {
+    min-height: 190px;
+    padding: 22px;
+  }
+}

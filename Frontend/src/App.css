@@ -1,0 +1,232 @@
+/* =========================================
+   INTERNSHIP PORTAL - MAIN APP CSS
+   Navy + Teal Professional Theme
+========================================= */
+
+.App {
+  text-align: center;
+}
+
+/* =========================================
+   BODY
+========================================= */
+
+body {
+  margin: 0;
+  background-color: #f8fafc;
+  color: #0f172a;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.custom-navbar {
+  background-color: #0f172a !important;
+  min-height: 72px;
+}
+
+.custom-navbar .navbar-brand {
+  color: #ffffff !important;
+  font-size: 23px;
+  font-weight: 700;
+}
+
+.custom-navbar .btn-link {
+  color: #e2e8f0 !important;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.custom-navbar .btn-link:hover {
+  color: #2dd4bf !important;
+}
+
+/* =========================================
+   LOGOUT BUTTON
+========================================= */
+
+.custom-logout {
+  background-color: #14b8a6 !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 7px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.custom-logout:hover {
+  background-color: #0f766e !important;
+  transform: translateY(-1px);
+}
+
+/* =========================================
+   ADMIN BADGE
+========================================= */
+
+.custom-navbar .badge.bg-danger {
+  background-color: #ef4444 !important;
+}
+
+/* =========================================
+   PAGE HEADINGS
+========================================= */
+
+h1,
+h2,
+h3 {
+  color: #0f172a;
+  font-weight: 700;
+}
+
+/* =========================================
+   INTERNSHIP CARDS
+========================================= */
+
+.internship-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-left: 5px solid #14b8a6;
+  border-radius: 14px;
+  box-shadow: 0 4px 15px rgba(15, 23, 42, 0.08);
+  transition: all 0.3s ease;
+}
+
+.internship-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.12);
+}
+
+/* =========================================
+   COMPANY BADGE
+========================================= */
+
+.company-badge {
+  background-color: #ccfbf1;
+  color: #0f766e;
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* =========================================
+   APPLY BUTTON
+========================================= */
+
+.apply-btn {
+  background-color: #0d9488;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.apply-btn:hover {
+  background-color: #0f766e;
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   GENERAL BUTTON
+========================================= */
+
+.btn-primary {
+  background-color: #0d9488 !important;
+  border-color: #0d9488 !important;
+}
+
+.btn-primary:hover {
+  background-color: #0f766e !important;
+  border-color: #0f766e !important;
+}
+
+/* =========================================
+   LINKS
+========================================= */
+
+a {
+  color: #0d9488;
+}
+
+a:hover {
+  color: #0f766e;
+}
+
+/* =========================================
+   FORM INPUTS
+========================================= */
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #14b8a6;
+  box-shadow: 0 0 0 0.2rem rgba(20, 184, 166, 0.2);
+}
+
+/* =========================================
+   ORIGINAL CREATE REACT APP STYLES
+========================================= */
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #0f172a;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #2dd4bf;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 768px) {
+  .custom-navbar {
+    min-height: 65px;
+  }
+
+  .custom-navbar .navbar-brand {
+    font-size: 20px;
+  }
+
+  .custom-navbar .btn-link {
+    font-size: 14px;
+  }
+
+  .internship-card {
+    margin-bottom: 20px;
+  }
+}
