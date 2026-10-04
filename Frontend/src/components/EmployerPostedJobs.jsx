@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import './EmployerPostedJobs.css';
 
 function EmployerPostedJobs() {
-
   const [internships, setInternships] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+
+  // NEW: Search and filter
+  const [searchTerm, setSearchTerm] = useState('');
+  const [statusFilter, setStatusFilter] = useState('All');
 
   const token = localStorage.getItem('token');
 
@@ -15,19 +19,14 @@ function EmployerPostedJobs() {
 
   const userId = user?.id;
 
-
   useEffect(() => {
     fetchPostedInternships();
   }, []);
 
-
   const fetchPostedInternships = async () => {
-
     try {
-
       setLoading(true);
       setError('');
-
 
       const response = await axios.get(
         'http://localhost:5000/api/internships',
@@ -38,252 +37,460 @@ function EmployerPostedJobs() {
         }
       );
 
-
       const data = Array.isArray(response.data)
         ? response.data
         : response.data.internships || [];
 
-
       // Employer ले post गरेको मात्र
       const myInternships = data.filter(
         (internship) =>
-          Number(internship.posted_by) ===
-          Number(userId)
+          Number(internship.posted_by) === Number(userId)
       );
 
-
       setInternships(myInternships);
-
     } catch (err) {
-
       console.error(
         'Error fetching posted internships:',
         err
       );
 
-
       setError(
         err.response?.data?.message ||
         'Failed to load posted internships.'
       );
-
     } finally {
-
       setLoading(false);
-
     }
   };
 
+  // ==========================================
+  // FILTER INTERNSHIPS
+  // ==========================================
+
+  const filteredInternships = internships.filter(
+    (internship) => {
+      const search = searchTerm.toLowerCase().trim();
+
+      const matchesSearch =
+        internship.title
+          ?.toLowerCase()
+          .includes(search) ||
+        internship.company
+          ?.toLowerCase()
+          .includes(search) ||
+        internship.location
+          ?.toLowerCase()
+          .includes(search);
+
+      const isApproved =
+        Number(internship.is_approved) === 1;
+
+      const currentStatus = isApproved
+        ? 'Approved'
+        : 'Pending';
+
+      const matchesStatus =
+        statusFilter === 'All' ||
+        currentStatus === statusFilter;
+
+      return matchesSearch && matchesStatus;
+    }
+  );
+
+  // ==========================================
+  // COUNTS
+  // ==========================================
+
+  const approvedCount = internships.filter(
+    (internship) =>
+      Number(internship.is_approved) === 1
+  ).length;
+
+  const pendingCount =
+    internships.length - approvedCount;
+
+  // ==========================================
+  // FORMAT DATE
+  // ==========================================
+
+  const formatDate = (date) => {
+    if (!date) return 'N/A';
+
+    const parsedDate = new Date(date);
+
+    if (Number.isNaN(parsedDate.getTime())) {
+      return 'N/A';
+    }
+
+    return parsedDate.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    });
+  };
 
   return (
-    <div className="container py-4">
+    <div className="employer-posted-container">
 
+      {/* ==========================================
+          HEADER
+      ========================================== */}
 
-      {/* HEADER */}
+      <div className="posted-dashboard-header">
 
-      <div className="mb-4">
+        <div>
+          <h1>Employer Dashboard</h1>
 
-        <h1 className="fw-bold">
-          Employer Dashboard
-        </h1>
-
-        <p className="text-muted">
-          Manage your posted internship opportunities.
-        </p>
+          <p>
+            Manage your posted internship opportunities.
+          </p>
+        </div>
 
       </div>
 
 
-      {/* LOADING */}
+      {/* ==========================================
+          LOADING
+      ========================================== */}
 
       {loading && (
+        <div className="posted-loading">
+          <div className="posted-spinner"></div>
 
-        <div className="text-center py-5">
-
-          <p className="text-muted">
+          <p>
             Loading your posted internships...
           </p>
-
         </div>
-
       )}
 
 
-      {/* ERROR */}
+      {/* ==========================================
+          ERROR
+      ========================================== */}
 
       {!loading && error && (
-
-        <div className="alert alert-danger">
-
+        <div className="posted-error">
           {error}
-
         </div>
-
       )}
 
 
-      {/* NO POSTED JOB */}
+      {/* ==========================================
+          MAIN CONTENT
+      ========================================== */}
 
-      {!loading &&
-        !error &&
-        internships.length === 0 && (
+      {!loading && !error && (
+        <>
 
-          <div className="card shadow-sm">
+          {/* ========================================
+              SUMMARY CARDS
+          ======================================== */}
 
-            <div className="card-body text-center py-5">
+          <div className="posted-summary">
 
-              <h4 className="fw-bold">
+            <div className="summary-card">
+              <div className="summary-icon">
+                📋
+              </div>
+
+              <div>
+                <span>Total Internships</span>
+                <strong>{internships.length}</strong>
+              </div>
+            </div>
+
+
+            <div className="summary-card approved-summary">
+              <div className="summary-icon">
+                ✓
+              </div>
+
+              <div>
+                <span>Approved</span>
+                <strong>{approvedCount}</strong>
+              </div>
+            </div>
+
+
+            <div className="summary-card pending-summary">
+              <div className="summary-icon">
+                ⏳
+              </div>
+
+              <div>
+                <span>Pending</span>
+                <strong>{pendingCount}</strong>
+              </div>
+            </div>
+
+          </div>
+
+
+          {/* ========================================
+              SECTION HEADER
+          ======================================== */}
+
+          <div className="posted-section-header">
+
+            <div>
+              <h2>Your Posted Internships</h2>
+
+              <p>
+                View and manage your internship opportunities.
+              </p>
+            </div>
+
+            <div className="posted-total">
+              Total: <strong>{internships.length}</strong>
+            </div>
+
+          </div>
+
+
+          {/* ========================================
+              SEARCH & FILTER
+          ======================================== */}
+
+          {internships.length > 0 && (
+            <div className="posted-controls">
+
+              <div className="posted-search">
+                <span>⌕</span>
+
+                <input
+                  type="text"
+                  placeholder="Search by title, company or location..."
+                  value={searchTerm}
+                  onChange={(e) =>
+                    setSearchTerm(e.target.value)
+                  }
+                />
+              </div>
+
+
+              <div className="posted-filter">
+
+                <label htmlFor="statusFilter">
+                  Status
+                </label>
+
+                <select
+                  id="statusFilter"
+                  value={statusFilter}
+                  onChange={(e) =>
+                    setStatusFilter(e.target.value)
+                  }
+                >
+                  <option value="All">
+                    All
+                  </option>
+
+                  <option value="Approved">
+                    Approved
+                  </option>
+
+                  <option value="Pending">
+                    Pending
+                  </option>
+                </select>
+
+              </div>
+
+            </div>
+          )}
+
+
+          {/* ========================================
+              NO POSTED JOB
+          ======================================== */}
+
+          {internships.length === 0 && (
+            <div className="posted-empty">
+
+              <div className="empty-icon">
+                📄
+              </div>
+
+              <h3>
                 No Internships Posted
-              </h4>
+              </h3>
 
-              <p className="text-muted mb-0">
+              <p>
                 You have not posted any internship
                 opportunities yet.
               </p>
 
             </div>
-
-          </div>
-
-      )}
+          )}
 
 
-      {/* POSTED JOBS */}
+          {/* ========================================
+              NO SEARCH RESULT
+          ======================================== */}
 
-      {!loading &&
-        !error &&
-        internships.length > 0 && (
+          {internships.length > 0 &&
+            filteredInternships.length === 0 && (
+              <div className="posted-empty">
 
-          <>
+                <div className="empty-icon">
+                  🔍
+                </div>
 
-            <div className="d-flex justify-content-between align-items-center mb-3">
-
-              <div>
-
-                <h3 className="fw-bold mb-1">
-                  Your Posted Internships
+                <h3>
+                  No Internships Found
                 </h3>
 
-                <p className="text-muted mb-0">
-                  Total: {internships.length}
+                <p>
+                  Try changing your search or status filter.
                 </p>
 
               </div>
-
-            </div>
-
-
-            <div className="row g-4">
-
-              {internships.map((internship) => (
-
-                <div
-                  className="col-md-6 col-lg-4"
-                  key={internship.id}
-                >
-
-                  <div className="card h-100 shadow-sm">
-
-                    <div className="card-body">
-
-                      <h5 className="fw-bold">
-                        {internship.title}
-                      </h5>
+            )}
 
 
-                      <p className="mb-2">
+          {/* ========================================
+              POSTED JOBS
+          ======================================== */}
 
-                        <strong>
-                          Company:
-                        </strong>{' '}
+          {filteredInternships.length > 0 && (
+            <div className="posted-jobs-grid">
 
-                        {internship.company ||
-                          'N/A'}
+              {filteredInternships.map(
+                (internship) => {
 
-                      </p>
+                  const isApproved =
+                    Number(internship.is_approved) === 1;
+
+                  return (
+                    <div
+                      className="posted-job-card"
+                      key={internship.id}
+                    >
+
+                      {/* CARD TOP */}
+
+                      <div className="job-card-top">
+
+                        <div className="job-title-area">
+
+                          <h3>
+                            {internship.title}
+                          </h3>
+
+                          <span className="job-company">
+                            {internship.company || 'N/A'}
+                          </span>
+
+                        </div>
+
+                        <span
+                          className={
+                            isApproved
+                              ? 'job-status approved'
+                              : 'job-status pending'
+                          }
+                        >
+                          <span className="status-dot"></span>
+
+                          {isApproved
+                            ? 'Approved'
+                            : 'Pending'}
+                        </span>
+
+                      </div>
 
 
-                      <p className="mb-2">
+                      {/* CARD DETAILS */}
 
-                        <strong>
-                          Location:
-                        </strong>{' '}
+                      <div className="job-details">
 
-                        {internship.location ||
-                          'N/A'}
+                        <div className="job-detail">
 
-                      </p>
+                          <span className="detail-label">
+                            Location
+                          </span>
 
+                          <strong>
+                            {internship.location || 'N/A'}
+                          </strong>
 
-                      <p className="mb-2">
-
-                        <strong>
-                          Stipend:
-                        </strong>{' '}
-
-                        {internship.stipend ||
-                          'N/A'}
-
-                      </p>
+                        </div>
 
 
-                      <p className="mb-2">
+                        <div className="job-detail">
 
-                        <strong>
-                          Deadline:
-                        </strong>{' '}
+                          <span className="detail-label">
+                            Stipend
+                          </span>
 
-                        {internship.deadline
-                          ? new Date(
+                          <strong>
+                            {internship.stipend || 'N/A'}
+                          </strong>
+
+                        </div>
+
+
+                        <div className="job-detail">
+
+                          <span className="detail-label">
+                            Application Deadline
+                          </span>
+
+                          <strong>
+                            {formatDate(
                               internship.deadline
-                            ).toLocaleDateString()
-                          : 'N/A'}
+                            )}
+                          </strong>
 
-                      </p>
+                        </div>
 
-
-                      <p className="mb-0">
-
-                        <strong>
-                          Status:
-                        </strong>{' '}
+                      </div>
 
 
-                        {Number(
-                          internship.is_approved
-                        ) === 1 ? (
+                      {/* DESCRIPTION */}
 
-                          <span className="badge bg-success">
-                            Approved
+                      {internship.description && (
+                        <div className="job-description">
+
+                          <span className="detail-label">
+                            Description
                           </span>
 
-                        ) : (
+                          <p>
+                            {internship.description}
+                          </p>
 
-                          <span className="badge bg-warning text-dark">
-                            Pending
-                          </span>
+                        </div>
+                      )}
 
-                        )}
 
-                      </p>
+                      {/* CARD FOOTER */}
+
+                      <div className="job-card-footer">
+
+                        <span>
+                          Internship Opportunity
+                        </span>
+
+                        <span className="posted-indicator">
+                          ● Posted
+                        </span>
+
+                      </div>
 
                     </div>
-
-                  </div>
-
-                </div>
-
-              ))}
+                  );
+                }
+              )}
 
             </div>
+          )}
 
-          </>
-
+        </>
       )}
 
     </div>
   );
 }
-
 
 export default EmployerPostedJobs;

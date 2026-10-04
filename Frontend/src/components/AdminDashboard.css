@@ -1,0 +1,311 @@
+.admin-dashboard {
+    padding: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.admin-page-header {
+    margin-bottom: 30px;
+}
+
+.admin-page-header h1 {
+    margin: 0;
+    font-size: 32px;
+    color: #172033;
+}
+
+.admin-page-header p {
+    margin-top: 8px;
+    color: #6b7280;
+    font-size: 15px;
+}
+
+/* =========================
+   STATISTICS
+========================= */
+
+.admin-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+    margin-bottom: 35px;
+}
+
+.admin-stat-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 22px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+}
+
+.stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: #eef2ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 23px;
+}
+
+.admin-stat-card span {
+    display: block;
+    color: #6b7280;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.admin-stat-card h2 {
+    margin: 0;
+    font-size: 27px;
+    color: #172033;
+}
+
+.pending-card {
+    border-left: 4px solid #f59e0b;
+}
+
+/* =========================
+   SECTION
+========================= */
+
+.admin-section {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+}
+
+.section-heading {
+    margin-bottom: 20px;
+}
+
+.section-heading h2,
+.approval-header h2 {
+    margin: 0;
+    color: #172033;
+}
+
+.section-heading p,
+.approval-header p {
+    margin: 6px 0 0;
+    color: #6b7280;
+}
+
+/* =========================
+   MENU CARDS
+========================= */
+
+.admin-menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.admin-menu-card {
+    border: 1px solid #e5e7eb;
+    background: #fafafa;
+    border-radius: 13px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.admin-menu-card:hover {
+    background: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.08);
+}
+
+.menu-icon {
+    font-size: 27px;
+}
+
+.admin-menu-card h3 {
+    margin: 0 0 5px;
+    color: #172033;
+}
+
+.admin-menu-card p {
+    margin: 0;
+    color: #6b7280;
+    font-size: 13px;
+}
+
+/* =========================
+   APPROVALS
+========================= */
+
+.approval-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.view-all-btn {
+    border: none;
+    background: #172033;
+    color: white;
+    padding: 9px 17px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.approval-box {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.approval-item {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.approval-item:last-child {
+    border-bottom: none;
+}
+
+.approval-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.approval-icon {
+    width: 45px;
+    height: 45px;
+    background: #f3f4f6;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 21px;
+}
+
+.approval-item h3 {
+    margin: 0 0 5px;
+    color: #172033;
+}
+
+.approval-item p {
+    margin: 0;
+    color: #6b7280;
+    font-size: 13px;
+}
+
+.approve-page-btn {
+    border: none;
+    background: #198754;
+    color: white;
+    padding: 9px 18px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+@media (max-width: 1100px) {
+    .admin-stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .admin-menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .admin-dashboard {
+        padding: 20px;
+    }
+
+    .admin-stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .approval-item {
+        align-items: flex-start;
+        gap: 15px;
+        flex-direction: column;
+    }
+    /* =====================================================
+   CLICKABLE STAT CARDS
+===================================================== */
+
+.clickable-card {
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    font-family: inherit;
+    transition: all 0.2s ease;
+}
+
+.clickable-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =====================================================
+   REMOVE BUTTON DEFAULT STYLE
+===================================================== */
+
+.admin-stat-card {
+    border: none;
+    background: #ffffff;
+}
+
+
+/* =====================================================
+   PENDING CARD
+===================================================== */
+
+.admin-stat-card.pending-card {
+    border-left: 5px solid #f59e0b;
+}
+
+
+/* =====================================================
+   MANAGEMENT CARDS
+===================================================== */
+
+.admin-menu-card {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.admin-menu-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.10);
+}
+
+
+/* =====================================================
+   BUTTON RESET
+===================================================== */
+
+.admin-menu-card,
+.view-all-btn,
+.approve-page-btn,
+.refresh-btn {
+    font-family: inherit;
+}
+}

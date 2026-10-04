@@ -1,464 +1,1074 @@
-/* ==========================================
+/* =========================================================
    INTERNSHIP PAGE
-   Navy + Teal Theme
-========================================== */
+========================================================= */
 
-.internship-container {
-  max-width: 1100px;
-  margin: 40px auto;
-  padding: 0 20px;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, sans-serif;
-  color: #1f2937;
+.internship-page {
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 32px 38px 55px;
+
+    background: #f7f9fc;
+    color: #172033;
+
+    box-sizing: border-box;
+
+    font-family:
+        Inter,
+        "Segoe UI",
+        Arial,
+        sans-serif;
 }
 
-/* ==========================================
-   BASE CARD
-========================================== */
 
-.card {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 28px;
-  box-shadow:
-    0 10px 15px -3px rgba(0, 0, 0, 0.05),
-    0 4px 6px -2px rgba(0, 0, 0, 0.02);
-  border: 1px solid #e5e7eb;
-  margin-bottom: 32px;
+/* =========================================================
+   HEADER
+========================================================= */
+
+.internship-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 28px;
+    margin-bottom: 26px;
 }
 
-.post-card h2,
-.listings-section h2 {
-  margin-top: 0;
-  margin-bottom: 20px;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #0f172a;
+.internship-eyebrow {
+    margin: 0 0 7px;
+
+    color: #0d9488;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: 1px;
 }
 
-/* ==========================================
+.internship-header h1 {
+    margin: 0;
+
+    color: #172033;
+
+    font-size: 29px;
+    line-height: 1.25;
+
+    font-weight: 700;
+}
+
+.internship-header-text {
+    max-width: 650px;
+
+    margin: 9px 0 0;
+
+    color: #667085;
+
+    font-size: 14px;
+    line-height: 1.6;
+
+    font-weight: 400;
+}
+
+
+/* =========================================================
+   HEADER STATS
+========================================================= */
+
+.internship-header-stats {
+    display: flex;
+
+    min-width: 285px;
+
+    background: #ffffff;
+
+    border: 1px solid #e0e6ed;
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+.header-stat {
+    flex: 1;
+
+    padding: 15px 18px;
+
+    text-align: center;
+
+    border-right: 1px solid #e8ecf1;
+}
+
+.header-stat:last-child {
+    border-right: none;
+}
+
+.header-stat strong {
+    display: block;
+
+    color: #172033;
+
+    font-size: 21px;
+    font-weight: 650;
+}
+
+.header-stat span {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #7a8494;
+
+    font-size: 11px;
+    font-weight: 500;
+
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.internship-message {
+    margin-bottom: 20px;
+
+    padding: 12px 15px;
+
+    border-radius: 7px;
+
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.message-success {
+    color: #087f5b;
+
+    background: #eefaf5;
+
+    border: 1px solid #c8eadb;
+}
+
+.message-error {
+    color: #b42318;
+
+    background: #fff3f2;
+
+    border: 1px solid #f1cfcc;
+}
+
+
+/* =========================================================
+   POST SECTION
+========================================================= */
+
+.post-internship-section {
+    margin-bottom: 30px;
+
+    background: #ffffff;
+
+    border: 1px solid #e0e6ed;
+    border-radius: 11px;
+
+    overflow: hidden;
+}
+
+.section-heading {
+    padding: 21px 24px;
+
+    background: #fbfcfe;
+
+    border-bottom: 1px solid #e7ebf0;
+}
+
+.section-label {
+    margin: 0 0 5px;
+
+    color: #0d9488;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: 1px;
+}
+
+.section-heading h2,
+.search-heading h2,
+.general-list-heading h2 {
+    margin: 0;
+
+    color: #1d2939;
+
+    font-size: 20px;
+    font-weight: 650;
+}
+
+.section-heading p:not(.section-label) {
+    margin: 6px 0 0;
+
+    color: #697586;
+
+    font-size: 13px;
+    font-weight: 400;
+}
+
+
+/* =========================================================
    FORM
-========================================== */
+========================================================= */
 
 .internship-form {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
+    padding: 24px;
+}
+
+.form-section {
+    padding-bottom: 23px;
+    margin-bottom: 23px;
+
+    border-bottom: 1px solid #e9edf2;
+}
+
+.form-section:last-of-type {
+    padding-bottom: 0;
+    margin-bottom: 0;
+
+    border-bottom: none;
+}
+
+.form-section-title {
+    margin-bottom: 16px;
+
+    color: #344054;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
 }
 
 .form-group {
-  display: flex;
-  gap: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 7px;
+
+    color: #344054;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.form-group label span {
+    margin-left: 3px;
+
+    color: #d92d20;
 }
 
 .form-group input,
-.internship-form textarea {
-  flex: 1;
-  padding: 12px 16px;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  outline: none;
-  transition: all 0.2s ease-in-out;
-  background-color: #f8fafc;
+.form-group textarea,
+.filter-field input,
+.filter-field select {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    border: 1px solid #cfd6df;
+    border-radius: 7px;
+
+    outline: none;
+
+    background: #ffffff;
+    color: #172033;
+
+    font-family: inherit;
+
+    font-size: 13px;
+    font-weight: 400;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.form-group input {
+    height: 43px;
+    padding: 0 12px;
+}
+
+.form-group textarea {
+    min-height: 125px;
+
+    padding: 12px;
+
+    resize: vertical;
+
+    line-height: 1.55;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder,
+.filter-field input::placeholder {
+    color: #98a2b3;
+
+    font-weight: 400;
 }
 
 .form-group input:focus,
-.internship-form textarea:focus {
-  border-color: #14b8a6;
-  background-color: #ffffff;
-  box-shadow:
-    0 0 0 3px rgba(20, 184, 166, 0.15);
+.form-group textarea:focus,
+.filter-field input:focus,
+.filter-field select:focus {
+    border-color: #0d9488;
+
+    box-shadow:
+        0 0 0 2px rgba(13, 148, 136, 0.08);
 }
 
-/* ==========================================
-   PRIMARY BUTTON
-========================================== */
+.character-count {
+    margin-top: 5px;
 
-.btn-primary {
-  align-self: flex-start;
-  background-color: #0d9488;
-  color: #ffffff;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
+    text-align: right;
+
+    color: #98a2b3;
+
+    font-size: 10px;
+    font-weight: 400;
 }
 
-.btn-primary:hover {
-  background-color: #0f766e;
+
+/* =========================================================
+   FORM BUTTONS
+========================================================= */
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 9px;
+
+    padding-top: 23px;
 }
 
-.btn-primary:disabled {
-  background-color: #9ca3af;
-  cursor: not-allowed;
+.primary-btn,
+.secondary-btn,
+.apply-btn,
+.clear-btn {
+    border-radius: 7px;
+
+    font-family: inherit;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.15s ease;
 }
 
-/* ==========================================
-   SEARCH & FILTER
-========================================== */
+.primary-btn {
+    min-width: 140px;
+    height: 41px;
 
-.filter-card {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 28px;
+    padding: 0 18px;
 
-  box-shadow:
-    0 4px 10px rgba(0, 0, 0, 0.04);
+    color: #ffffff;
+
+    background: #0d9488;
+
+    border: 1px solid #0d9488;
 }
 
-/* Search input */
-
-.search-box {
-  position: relative;
-  width: 100%;
-  margin-bottom: 16px;
+.primary-btn:hover {
+    background: #0b7f75;
 }
 
-.search-box input {
-  width: 100%;
-  box-sizing: border-box;
-
-  padding: 13px 16px 13px 44px;
-
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
-
-  font-size: 0.95rem;
-  outline: none;
-
-  background-color: #f8fafc;
-
-  transition: all 0.2s ease;
+.primary-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
-.search-box input:focus {
-  border-color: #14b8a6;
-  background-color: #ffffff;
+.secondary-btn {
+    height: 41px;
 
-  box-shadow:
-    0 0 0 3px rgba(20, 184, 166, 0.15);
+    padding: 0 18px;
+
+    color: #475467;
+
+    background: #ffffff;
+
+    border: 1px solid #cfd6df;
 }
 
-.search-icon {
-  position: absolute;
-  left: 15px;
-  top: 50%;
-
-  transform: translateY(-50%);
-
-  font-size: 17px;
+.secondary-btn:hover {
+    background: #f7f8fa;
 }
 
-/* Filter row */
 
-.filter-row {
-  display: flex;
-  gap: 12px;
-  align-items: center;
+/* =========================================================
+   SEARCH SECTION
+========================================================= */
+
+.search-section {
+    margin-bottom: 27px;
+
+    padding: 21px;
+
+    background: #ffffff;
+
+    border: 1px solid #e0e6ed;
+    border-radius: 11px;
 }
 
-.filter-row select {
-  flex: 1;
+.search-heading {
+    display: flex;
 
-  padding: 12px 14px;
+    align-items: center;
+    justify-content: space-between;
 
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
+    gap: 20px;
 
-  background-color: #f8fafc;
-
-  font-size: 0.9rem;
-  color: #334155;
-
-  cursor: pointer;
-  outline: none;
+    margin-bottom: 18px;
 }
-
-.filter-row select:focus {
-  border-color: #14b8a6;
-
-  box-shadow:
-    0 0 0 3px rgba(20, 184, 166, 0.15);
-}
-
-/* Clear filter button */
-
-.clear-filter-btn {
-  padding: 11px 18px;
-
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
-
-  background-color: #f8fafc;
-  color: #334155;
-
-  font-size: 0.9rem;
-  font-weight: 600;
-
-  cursor: pointer;
-
-  transition: all 0.2s ease;
-
-  white-space: nowrap;
-}
-
-.clear-filter-btn:hover {
-  background-color: #0d9488;
-  color: #ffffff;
-  border-color: #0d9488;
-}
-
-/* Result count */
 
 .result-count {
-  margin-top: 15px;
+    margin: 0;
 
-  font-size: 0.85rem;
+    color: #667085;
 
-  color: #64748b;
+    font-size: 12px;
+    font-weight: 500;
 }
 
-.result-count strong {
-  color: #0f766e;
+
+/* =========================================================
+   FILTERS
+========================================================= */
+
+.filter-area {
+    display: grid;
+
+    grid-template-columns:
+        minmax(220px, 2fr)
+        minmax(145px, 1fr)
+        minmax(145px, 1fr)
+        minmax(145px, 1fr)
+        auto;
+
+    align-items: end;
+
+    gap: 11px;
 }
 
-/* ==========================================
-   NO SEARCH RESULTS
-========================================== */
-
-.no-results {
-  text-align: center;
-
-  background: #ffffff;
-
-  border: 1px solid #e5e7eb;
-
-  border-radius: 12px;
-
-  padding: 50px 20px;
-
-  margin-top: 20px;
+.filter-field {
+    display: flex;
+    flex-direction: column;
 }
 
-.no-results-icon {
-  font-size: 40px;
-  margin-bottom: 10px;
+.filter-field label {
+    margin-bottom: 6px;
+
+    color: #475467;
+
+    font-size: 11px;
+    font-weight: 600;
 }
 
-.no-results h3 {
-  margin: 0 0 8px;
+.filter-field input,
+.filter-field select {
+    height: 40px;
 
-  color: #0f172a;
-
-  font-size: 1.2rem;
+    padding: 0 10px;
 }
 
-.no-results p {
-  margin-bottom: 20px;
+.clear-btn {
+    height: 40px;
 
-  color: #64748b;
+    padding: 0 15px;
+
+    color: #475467;
+
+    background: #f5f6f8;
+
+    border: 1px solid #d9dee6;
 }
 
-/* ==========================================
-   SECONDARY BUTTON
-========================================== */
-
-.btn-secondary {
-  width: 100%;
-  background-color: #f1f5f9;
-  color: #334155;
-  padding: 10px 16px;
-  border: 1px solid #e2e8f0;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
+.clear-btn:hover {
+    background: #eceff2;
 }
 
-.btn-secondary:hover {
-  background-color: #0d9488;
-  color: #ffffff;
-  border-color: #0d9488;
+
+/* =========================================================
+   GENERAL LIST
+========================================================= */
+
+.general-list-heading {
+    margin-bottom: 17px;
 }
 
-/* ==========================================
-   INTERNSHIP GRID
-========================================== */
 
-.grid-container {
-  display: grid;
+/* =========================================================
+   INTERNSHIP LIST
+========================================================= */
 
-  grid-template-columns:
-    repeat(auto-fill, minmax(320px, 1fr));
-
-  gap: 24px;
+.internship-list-section {
+    width: 100%;
 }
 
-/* ==========================================
-   INTERNSHIP LISTING CARD
-========================================== */
+.internship-grid {
+    display: grid;
 
-.listing-card {
-  display: flex;
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
 
-  flex-direction: column;
-
-  justify-content: space-between;
-
-  border-left: 5px solid #14b8a6;
-
-  margin-bottom: 0;
-
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+    gap: 18px;
 }
 
-.listing-card:hover {
-  transform: translateY(-4px);
 
-  box-shadow:
-    0 20px 25px -5px rgba(0, 0, 0, 0.1),
-    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+/* =========================================================
+   INTERNSHIP CARD
+========================================================= */
+
+.internship-card {
+    display: flex;
+    flex-direction: column;
+
+    min-height: 405px;
+
+    background: #ffffff;
+
+    border: 1px solid #dfe5ec;
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    transition:
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
 }
 
-/* ==========================================
+.internship-card:hover {
+    border-color: #cbd4df;
+
+    box-shadow:
+        0 6px 18px rgba(16, 24, 40, 0.07);
+}
+
+
+/* =========================================================
    CARD HEADER
-========================================== */
+========================================================= */
 
-.card-header {
-  display: flex;
+.card-top {
+    display: flex;
 
-  justify-content: space-between;
+    align-items: flex-start;
+    justify-content: space-between;
 
-  align-items: flex-start;
+    gap: 12px;
 
-  gap: 12px;
+    padding: 18px 19px 15px;
 
-  margin-bottom: 12px;
+    border-bottom: 1px solid #edf0f4;
 }
 
-.card-header h3 {
-  margin: 0;
+.card-company {
+    margin: 0 0 5px;
 
-  font-size: 1.2rem;
+    color: #0d9488;
 
-  font-weight: 600;
+    font-size: 11px;
+    font-weight: 600;
 
-  color: #0f172a;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-/* ==========================================
-   COMPANY BADGE
-========================================== */
+.card-title {
+    margin: 0;
 
-.badge {
-  background-color: #ccfbf1;
+    color: #1d2939;
 
-  color: #0f766e;
+    font-size: 17px;
+    line-height: 1.35;
 
-  padding: 4px 10px;
-
-  border-radius: 9999px;
-
-  font-size: 0.75rem;
-
-  font-weight: 600;
-
-  white-space: nowrap;
+    font-weight: 650;
 }
 
-/* ==========================================
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.deadline-status {
+    flex-shrink: 0;
+
+    padding: 5px 8px;
+
+    border-radius: 15px;
+
+    font-size: 9px;
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.status-open {
+    color: #067647;
+
+    background: #ecfdf3;
+
+    border: 1px solid #abefc6;
+}
+
+.status-soon {
+    color: #b54708;
+
+    background: #fffaeb;
+
+    border: 1px solid #fedf89;
+}
+
+.status-closed {
+    color: #667085;
+
+    background: #f2f4f7;
+
+    border: 1px solid #d0d5dd;
+}
+
+
+/* =========================================================
    CARD DETAILS
-========================================== */
+========================================================= */
 
 .card-details {
-  font-size: 0.875rem;
+    display: grid;
 
-  color: #475569;
+    grid-template-columns:
+        repeat(3, 1fr);
 
-  margin-bottom: 12px;
+    padding: 14px 19px;
+
+    border-bottom: 1px solid #edf0f4;
 }
 
-.card-details p {
-  margin: 4px 0;
+.detail-item {
+    min-width: 0;
+
+    padding-right: 10px;
 }
 
-/* ==========================================
+.detail-item:not(:last-child) {
+    border-right: 1px solid #e7ebef;
+
+    margin-right: 10px;
+}
+
+.detail-label {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #98a2b3;
+
+    font-size: 9px;
+    font-weight: 600;
+
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.detail-item strong {
+    display: block;
+
+    overflow: hidden;
+
+    color: #475467;
+
+    font-size: 11px;
+    line-height: 1.4;
+
+    font-weight: 600;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
    DESCRIPTION
-========================================== */
+========================================================= */
 
-.description {
-  font-size: 0.9rem;
+.card-description {
+    flex: 1;
 
-  color: #64748b;
-
-  line-height: 1.5;
-
-  margin-bottom: 20px;
+    padding: 16px 19px 8px;
 }
 
-/* ==========================================
-   NO DATA
-========================================== */
+.card-description p {
+    display: -webkit-box;
 
-.no-data {
-  color: #64748b;
+    margin: 0;
 
-  font-style: italic;
+    overflow: hidden;
+
+    color: #667085;
+
+    font-size: 12px;
+    line-height: 1.6;
+
+    font-weight: 400;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
 }
 
-/* ==========================================
-   PAGE BACKGROUND
-========================================== */
 
-body {
-  background-color: #f8fafc;
+/* =========================================================
+   REQUIREMENTS
+========================================================= */
+
+.requirements-area {
+    padding: 8px 19px 16px;
 }
 
-/* ==========================================
+.requirements-heading {
+    margin: 0 0 8px;
+
+    color: #475467;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.requirements-list {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 5px;
+}
+
+.requirements-list span {
+    padding: 4px 7px;
+
+    color: #475467;
+
+    background: #f7f8fa;
+
+    border: 1px solid #e4e7ec;
+
+    border-radius: 4px;
+
+    font-size: 9px;
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   CARD FOOTER
+========================================================= */
+
+.card-footer {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    padding: 13px 19px;
+
+    background: #fbfcfd;
+
+    border-top: 1px solid #edf0f4;
+}
+
+.deadline-text {
+    color: #667085;
+
+    font-size: 10px;
+    line-height: 1.4;
+
+    font-weight: 500;
+}
+
+.apply-btn {
+    flex-shrink: 0;
+
+    min-width: 92px;
+    height: 35px;
+
+    padding: 0 12px;
+
+    color: #ffffff;
+
+    background: #0d9488;
+
+    border: 1px solid #0d9488;
+}
+
+.apply-btn:hover {
+    background: #0b7f75;
+}
+
+.apply-disabled {
+    color: #667085;
+
+    background: #e4e7ec;
+
+    border-color: #e4e7ec;
+
+    cursor: not-allowed;
+}
+
+.apply-disabled:hover {
+    background: #e4e7ec;
+}
+
+
+/* =========================================================
+   EMPTY / LOADING
+========================================================= */
+
+.empty-state {
+    display: flex;
+
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    min-height: 250px;
+
+    padding: 28px;
+
+    background: #ffffff;
+
+    border: 1px solid #e0e6ed;
+    border-radius: 11px;
+
+    text-align: center;
+}
+
+.empty-state-line,
+.loading-line {
+    width: 40px;
+    height: 3px;
+
+    margin-bottom: 15px;
+
+    border-radius: 10px;
+
+    background: #0d9488;
+}
+
+.empty-state h3 {
+    margin: 0;
+
+    color: #344054;
+
+    font-size: 17px;
+    font-weight: 650;
+}
+
+.empty-state p {
+    max-width: 460px;
+
+    margin: 7px 0 17px;
+
+    color: #7a8494;
+
+    font-size: 12px;
+    line-height: 1.6;
+
+    font-weight: 400;
+}
+
+.loading-line {
+    animation: loadingPulse 1.2s infinite ease-in-out;
+}
+
+@keyframes loadingPulse {
+    0% {
+        opacity: 0.35;
+        width: 28px;
+    }
+
+    50% {
+        opacity: 1;
+        width: 50px;
+    }
+
+    100% {
+        opacity: 0.35;
+        width: 28px;
+    }
+}
+
+
+/* =========================================================
    RESPONSIVE
-========================================== */
+========================================================= */
 
-@media (max-width: 640px) {
+@media (max-width: 1200px) {
 
-  .form-group {
-    flex-direction: column;
-  }
+    .internship-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
 
-  .grid-container {
-    grid-template-columns: 1fr;
-  }
+    .filter-area {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
 
-  .card {
-    padding: 20px;
-  }
+    .search-field {
+        grid-column: span 2;
+    }
 
-  .card-header {
-    flex-direction: column;
-  }
+    .clear-btn {
+        width: 100%;
+    }
+}
 
-  .badge {
-    align-self: flex-start;
-  }
 
-  /* Search filters mobile */
+@media (max-width: 850px) {
 
-  .filter-row {
-    flex-direction: column;
-    align-items: stretch;
-  }
+    .internship-page {
+        padding: 24px 20px 40px;
+    }
 
-  .filter-row select,
-  .clear-filter-btn {
-    width: 100%;
-  }
+    .internship-header {
+        align-items: stretch;
 
+        flex-direction: column;
+    }
+
+    .internship-header-stats {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .internship-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-area {
+        grid-template-columns: 1fr;
+    }
+
+    .search-field {
+        grid-column: auto;
+    }
+
+    .search-heading {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .clear-btn {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 560px) {
+
+    .internship-page {
+        padding: 20px 14px 35px;
+    }
+
+    .internship-header h1 {
+        font-size: 25px;
+    }
+
+    .internship-header-stats {
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+    .header-stat {
+        padding: 12px 8px;
+    }
+
+    .header-stat strong {
+        font-size: 18px;
+    }
+
+    .post-internship-section,
+    .search-section {
+        border-radius: 9px;
+    }
+
+    .internship-form {
+        padding: 18px;
+    }
+
+    .section-heading {
+        padding: 18px;
+    }
+
+    .card-top {
+        padding: 17px;
+    }
+
+    .card-details {
+        padding: 13px 17px;
+    }
+
+    .card-description {
+        padding: 15px 17px 8px;
+    }
+
+    .requirements-area {
+        padding: 8px 17px 15px;
+    }
+
+    .card-footer {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        padding: 13px 17px;
+    }
+
+    .apply-btn {
+        width: 100%;
+    }
+
+    .form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+        width: 100%;
+    }
+
+    .card-title {
+        font-size: 16px;
+    }
 }

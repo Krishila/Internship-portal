@@ -1,179 +1,630 @@
+/* =========================================================
+   STUDENT HOME / DASHBOARD
+   Professional Navy + Blue Theme
+========================================================= */
 
-/* Main dashboard */
 .student-home {
-  max-width: 1250px;
-  margin: 0 auto;
-  padding: 28px 20px 50px;
-  color: #1e293b;
+    width: 100%;
+    max-width: 1250px;
+
+    margin: 0 auto;
+
+    padding: 32px 20px 55px;
+
+    box-sizing: border-box;
+
+    color: #1e293b;
+
+    font-family:
+        'Inter',
+        -apple-system,
+        BlinkMacSystemFont,
+        'Segoe UI',
+        Roboto,
+        sans-serif;
 }
 
-/* Welcome banner */
+
+/* =========================================================
+   WELCOME BANNER
+========================================================= */
+
 .welcome-section {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(120deg, #123b70, #2478bd);
-  padding: 42px 45px;
-  border-radius: 18px;
-  margin-bottom: 38px;
-  box-shadow: 0 10px 28px rgba(27, 78, 130, 0.15);
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            120deg,
+            #123b70 0%,
+            #1c5d99 55%,
+            #2478bd 100%
+        );
+
+    padding: 48px 52px;
+
+    border-radius: 20px;
+
+    margin-bottom: 42px;
+
+    min-height: 250px;
+
+    display: flex;
+
+    align-items: center;
+
+    box-sizing: border-box;
+
+    box-shadow:
+        0 14px 35px rgba(27, 78, 130, 0.16);
 }
+
+
+/* Large background circle */
 
 .welcome-section::after {
-  content: "";
-  position: absolute;
-  width: 260px;
-  height: 260px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
-  right: -65px;
-  top: -105px;
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+
+    height: 300px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    right: -70px;
+
+    top: -125px;
 }
+
+
+/* Second decorative circle */
+
+.welcome-section::before {
+    content: "";
+
+    position: absolute;
+
+    width: 120px;
+
+    height: 120px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.05);
+
+    right: 210px;
+
+    bottom: -65px;
+}
+
+
+/* =========================================================
+   WELCOME TITLE
+========================================================= */
 
 .welcome-section h1 {
-  color: #ffffff;
-  font-size: 34px;
-  font-weight: 750;
-  margin: 0 0 14px;
-  position: relative;
-  z-index: 1;
+    position: relative;
+
+    z-index: 2;
+
+    color: #ffffff;
+
+    font-size: 38px;
+
+    line-height: 1.2;
+
+    font-weight: 750;
+
+    letter-spacing: -0.6px;
+
+    margin: 0 0 14px;
 }
+
+
+/* =========================================================
+   WELCOME DESCRIPTION
+========================================================= */
 
 .welcome-section p {
-  color: #e2edff;
-  font-size: 16px;
-  line-height: 1.7;
-  max-width: 600px;
-  margin: 0 0 25px;
-  position: relative;
-  z-index: 1;
+    position: relative;
+
+    z-index: 2;
+
+    color: #e2edff;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    max-width: 650px;
+
+    margin: 0 0 28px;
 }
+
+
+/* =========================================================
+   BROWSE BUTTON
+========================================================= */
 
 .welcome-section button {
-  position: relative;
-  z-index: 1;
-  background: #ffffff;
-  color: #175b9b;
-  border: none;
-  border-radius: 9px;
-  padding: 13px 23px;
-  font-size: 15px;
-  font-weight: 650;
-  cursor: pointer;
-  transition: 0.2s ease;
+    position: relative;
+
+    z-index: 3;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #ffffff;
+
+    color: #175b9b;
+
+    border: none;
+
+    border-radius: 9px;
+
+    padding: 13px 23px;
+
+    min-width: 190px;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.10);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
 }
+
 
 .welcome-section button:hover {
-  background: #eaf3ff;
-  transform: translateY(-2px);
+    background: #f1f7ff;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 18px rgba(0, 0, 0, 0.14);
 }
 
-/* Quick access section */
-.home-summary h2 {
-  font-size: 25px;
-  font-weight: 700;
-  color: #172f50;
-  margin-bottom: 8px;
+
+.welcome-section button:active {
+    transform: translateY(0);
 }
+
+
+/* =========================================================
+   QUICK ACCESS SECTION
+========================================================= */
+
+.home-summary {
+    width: 100%;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================================================
+   QUICK ACCESS TITLE
+========================================================= */
+
+.home-summary h2 {
+    font-size: 28px;
+
+    font-weight: 720;
+
+    color: #172f50;
+
+    margin: 0 0 7px;
+
+    letter-spacing: -0.3px;
+}
+
+
+/* Optional subtitle if present */
+
+.home-summary > p {
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   QUICK ACCESS GRID
+========================================================= */
 
 .home-quick-links {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px;
-  margin-top: 22px;
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 24px;
+
+    margin-top: 23px;
+
+    width: 100%;
 }
 
-/* Cards */
+
+/* =========================================================
+   DASHBOARD CARD
+========================================================= */
+
 .home-card {
-  background: #ffffff;
-  border: 1px solid #e5eaf1;
-  border-radius: 15px;
-  padding: 26px 24px;
-  min-height: 225px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  box-shadow: 0 5px 18px rgba(15, 35, 65, 0.05);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+
+    background: #ffffff;
+
+    border:
+        1px solid #e3e8ef;
+
+    border-radius: 16px;
+
+    padding: 28px 26px;
+
+    min-height: 225px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    box-sizing: border-box;
+
+    box-shadow:
+        0 5px 18px rgba(15, 35, 65, 0.055);
+
+    transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        border-color 0.22s ease;
 }
+
+
+/* Small top accent */
+
+.home-card::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    width: 100%;
+
+    height: 4px;
+
+    border-radius:
+        16px 16px 0 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #1769aa,
+            #2b83c6
+        );
+}
+
+
+/* Hover */
 
 .home-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(15, 35, 65, 0.10);
+    transform: translateY(-5px);
+
+    border-color: #cfd9e6;
+
+    box-shadow:
+        0 14px 30px rgba(15, 35, 65, 0.11);
 }
+
+
+/* =========================================================
+   CARD ICON AREA
+========================================================= */
+
+.home-card-icon {
+    width: 48px;
+
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: #edf5ff;
+
+    color: #1769aa;
+
+    font-size: 22px;
+
+    margin-bottom: 17px;
+}
+
+
+/* =========================================================
+   CARD TITLE
+========================================================= */
 
 .home-card h3 {
-  color: #1b3c63;
-  font-size: 19px;
-  font-weight: 700;
-  margin: 0 0 12px;
+    color: #1b3c63;
+
+    font-size: 19px;
+
+    font-weight: 700;
+
+    margin: 0 0 10px;
 }
+
+
+/* =========================================================
+   CARD DESCRIPTION
+========================================================= */
 
 .home-card p {
-  color: #64748b;
-  font-size: 14px;
-  line-height: 1.7;
-  margin: 0 0 22px;
-  flex-grow: 1;
+    color: #64748b;
+
+    font-size: 14px;
+
+    line-height: 1.65;
+
+    margin: 0 0 22px;
+
+    flex-grow: 1;
 }
+
+
+/* =========================================================
+   CARD BUTTON
+========================================================= */
 
 .home-card button {
-  background: #edf5ff;
-  color: #1769aa;
-  border: 1px solid #d5e8fc;
-  border-radius: 8px;
-  padding: 10px 16px;
-  font-size: 14px;
-  font-weight: 650;
-  cursor: pointer;
-  transition: 0.2s ease;
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #edf5ff;
+
+    color: #1769aa;
+
+    border:
+        1px solid #d5e8fc;
+
+    border-radius: 8px;
+
+    padding: 10px 17px;
+
+    font-size: 14px;
+
+    font-weight: 650;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
 }
+
 
 .home-card button:hover {
-  background: #1769aa;
-  color: #ffffff;
+    background: #1769aa;
+
+    color: #ffffff;
+
+    border-color: #1769aa;
+
+    transform: translateY(-1px);
 }
 
-/* Tablet */
+
+/* =========================================================
+   CARD DIFFERENT COLORS
+   Optional if you add these classes
+========================================================= */
+
+.home-card.applications-card::before {
+    background:
+        linear-gradient(
+            90deg,
+            #2563eb,
+            #3b82f6
+        );
+}
+
+
+.home-card.notifications-card::before {
+    background:
+        linear-gradient(
+            90deg,
+            #d97706,
+            #f59e0b
+        );
+}
+
+
+.home-card.internships-card::before {
+    background:
+        linear-gradient(
+            90deg,
+            #0f766e,
+            #14b8a6
+        );
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
 @media (max-width: 900px) {
-  .home-quick-links {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 
-  .welcome-section {
-    padding: 35px;
-  }
+    .student-home {
+        padding:
+            28px 18px 45px;
+    }
+
+
+    .welcome-section {
+        padding: 38px 35px;
+    }
+
+
+    .welcome-section h1 {
+        font-size: 33px;
+    }
+
+
+    .home-quick-links {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
 }
 
-/* Mobile */
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
 @media (max-width: 600px) {
-  .student-home {
-    padding: 18px 12px 35px;
-  }
 
-  .welcome-section {
-    padding: 28px 22px;
-    border-radius: 13px;
-  }
+    .student-home {
+        padding:
+            20px 13px 35px;
+    }
 
-  .welcome-section h1 {
-    font-size: 25px;
-  }
 
-  .welcome-section p {
-    font-size: 14px;
-  }
+    .welcome-section {
+        padding:
+            30px 23px;
 
-  .home-summary h2 {
-    font-size: 22px;
-  }
+        border-radius: 15px;
 
-  .home-quick-links {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
+        min-height: auto;
 
-  .home-card {
-    min-height: 190px;
-    padding: 22px;
-  }
+        margin-bottom: 32px;
+    }
+
+
+    .welcome-section::after {
+        width: 190px;
+
+        height: 190px;
+
+        right: -80px;
+
+        top: -75px;
+    }
+
+
+    .welcome-section::before {
+        display: none;
+    }
+
+
+    .welcome-section h1 {
+        font-size: 27px;
+
+        line-height: 1.25;
+    }
+
+
+    .welcome-section p {
+        font-size: 14px;
+
+        line-height: 1.6;
+    }
+
+
+    .welcome-section button {
+        width: 100%;
+
+        padding: 12px 18px;
+    }
+
+
+    .home-summary h2 {
+        font-size: 23px;
+    }
+
+
+    .home-quick-links {
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+
+        margin-top: 18px;
+    }
+
+
+    .home-card {
+        min-height: 190px;
+
+        padding: 23px 21px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .welcome-section {
+        padding:
+            27px 19px;
+    }
+
+
+    .welcome-section h1 {
+        font-size: 24px;
+    }
+
+
+    .welcome-section p {
+        font-size: 13px;
+    }
+
+
+    .home-summary h2 {
+        font-size: 21px;
+    }
+
+
+    .home-card {
+        padding: 21px 18px;
+    }
+
 }

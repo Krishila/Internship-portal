@@ -32,9 +32,20 @@ export default function EmployerDashboard() {
                 }
             );
 
-            const data = Array.isArray(response.data)
-                ? response.data
+            console.log("FULL APPLICATION RESPONSE:", response.data);
+
+            // Backend response:
+            // {
+            //     success: true,
+            //     applications: [...]
+            // }
+
+            const data = Array.isArray(response.data?.applications)
+                ? response.data.applications
                 : [];
+
+            console.log("APPLICATIONS:", data);
+            console.log("APPLICATION COUNT:", data.length);
 
             setApplications(data);
             setErrorMsg("");
@@ -93,8 +104,7 @@ export default function EmployerDashboard() {
                     const currentId = app.id ?? app.app_id;
 
                     if (
-                        String(currentId) ===
-                        String(appId)
+                        String(currentId) === String(appId)
                     ) {
                         return {
                             ...app,
@@ -393,12 +403,12 @@ export default function EmployerDashboard() {
 
                 <div>
                     <h2>
-                       Applicant Overview
+                        Applicant Overview
                     </h2>
 
                     <p>
-                       View student applications and
-                       their qualifications.
+                        View student applications and
+                        their qualifications.
                     </p>
                 </div>
 
@@ -724,13 +734,11 @@ export default function EmployerDashboard() {
                                                 <td>
 
                                                     <div className="internship-title">
-
                                                         {
                                                             app.internship_title ||
                                                             app.title ||
                                                             "N/A"
                                                         }
-
                                                     </div>
 
                                                 </td>
@@ -741,12 +749,10 @@ export default function EmployerDashboard() {
                                                 <td>
 
                                                     <span className="date-text">
-
                                                         {formatDate(
                                                             app.applied_at ||
                                                             app.applied_date
                                                         )}
-
                                                     </span>
 
                                                 </td>
